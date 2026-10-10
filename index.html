@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamSpace | Company Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">T</div><div><strong>TeamSpace</strong><small>Company workspace</small></div></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <button class="nav-item active" data-view="home"><span>⌂</span> Overview</button>
+      <button class="nav-item" data-view="people"><span>♙</span> Staff directory</button>
+      <button class="nav-item" data-view="chat"><span>▤</span> Team chat <span class="nav-count">3</span></button>
+      <button class="nav-item" data-view="teams"><span>♧</span> Departments</button>
+      <div class="sidebar-bottom"><div class="online-dot"></div><div><strong>Workspace online</strong><small>Demo environment</small></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Overview</strong></div>
+        <div class="top-actions"><div class="search"><span>⌕</span><input id="searchInput" placeholder="Search staff or messages"></div><button class="icon-button" aria-label="Notifications">♧</button><div class="mini-avatar avatar-purple">JD</div></div>
+      </header>
+
+      <section class="view active-view" id="homeView">
+        <div class="welcome-row"><div><p class="eyebrow">FRIDAY, OCTOBER 9</p><h1>Good afternoon, John <span>✦</span></h1><p class="muted">Here’s what’s happening with your team today.</p></div><button class="primary-button" id="newMessageBtn">＋ New message</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon lilac">♙</span><span class="trend">+2 this week</span></div><p class="stat-label">Team members</p><div class="stat-number">24</div><p class="stat-foot">Across 4 departments</p></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon mint">●</span><span class="status-pill">Live</span></div><p class="stat-label">Online now</p><div class="stat-number">8</div><p class="stat-foot">Ready to collaborate</p></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon peach">▤</span><span class="trend">Today</span></div><p class="stat-label">Chat messages</p><div class="stat-number" id="messageCount">36</div><p class="stat-foot">In your team channels</p></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon blue">♧</span><span class="trend">2 new</span></div><p class="stat-label">Departments</p><div class="stat-number">4</div><p class="stat-foot">Working together</p></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel">
+            <div class="panel-heading"><div><h2>Recent conversations</h2><p class="muted">Catch up with your team</p></div><button class="text-button" data-go="chat">View chat →</button></div>
+            <div id="recentChats" class="conversation-list"></div>
+          </article>
+          <article class="panel activity-panel">
+            <div class="panel-heading"><div><h2>Team members</h2><p class="muted">People in your workspace</p></div><button class="text-button" data-go="people">View all →</button></div>
+            <div id="homePeople" class="people-mini"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="peopleView">
+        <div class="page-heading"><div><p class="eyebrow">YOUR COMPANY</p><h1>Staff directory</h1><p class="muted">Meet the people who make the work happen.</p></div><span class="result-count" id="staffCount">6 team members</span></div>
+        <div class="filter-row"><div class="search wide-search"><span>⌕</span><input id="staffSearch" placeholder="Search by name, role or department"></div><select id="departmentFilter"><option value="All">All departments</option><option>Engineering</option><option>Design</option><option>Marketing</option><option>Human Resources</option></select></div>
+        <div id="staffGrid" class="staff-grid"></div>
+      </section>
+
+      <section class="view" id="chatView">
+        <div class="page-heading"><div><p class="eyebrow">STAY CONNECTED</p><h1>Team chat</h1><p class="muted">Share updates and keep projects moving.</p></div></div>
+        <div class="chat-layout panel">
+          <aside class="chat-list-pane"><div class="chat-pane-title"><h2>Conversations</h2><button class="icon-button small" id="addConversation" title="New conversation">＋</button></div><div id="chatThreads"></div></aside>
+          <section class="chat-main"><div class="chat-header"><div class="mini-avatar avatar-blue" id="activeChatAvatar">EN</div><div><strong id="activeChatName">Engineering team</strong><small id="activeChatSub">8 members · 4 online</small></div><button class="icon-button chat-more" title="More options">•••</button></div><div class="chat-messages" id="chatMessages"></div><form class="message-composer" id="messageForm"><button type="button" class="icon-button attach-button" title="Attach (demo only)">＋</button><input id="messageInput" placeholder="Type a message..." autocomplete="off" required><button class="send-button" type="submit">Send ↑</button></form><p class="demo-note">Demo chat: messages are saved only in this browser.</p></section>
+        </div>
+      </section>
+
+      <section class="view" id="teamsView">
+        <div class="page-heading"><div><p class="eyebrow">HOW WE WORK</p><h1>Departments</h1><p class="muted">Teams organized around the work they do.</p></div></div>
+        <div class="department-grid" id="departmentGrid"></div>
+      </section>
+      <footer>TeamSpace prototype <span>•</span> Built for a student project</footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
